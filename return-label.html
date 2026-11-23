@@ -23,7 +23,13 @@
 </head>
 <body>
   <div class="bar"><a href="./">BrightCart</a></div>
-  <main><div class="panel">
+  <main><div class="panel" id="find" hidden>
+    <h1>Print a return label</h1>
+    <p>Enter the return number you got in the chat or on the phone (it starts with R-).</p>
+    <form id="f"><input id="q" placeholder="R-104377" style="font:16px inherit;padding:10px;border:1px solid #f3d5de;border-radius:10px;width:200px" required>
+      <button type="submit">Show label</button></form>
+    <p id="err" style="color:#be123c" hidden>That doesn't look like a return number. It starts with R- and has six digits.</p>
+  </div><div class="panel" id="label">
     <h1>Your prepaid return label</h1>
     <p>Return <code id="rma">-</code> for order <code id="order">-</code></p>
     <div class="label">
@@ -39,7 +45,13 @@
   </div></main>
   <script>
     var q = new URLSearchParams(location.search), r = q.get("rma") || "", o = q.get("order") || "";
-    r = /^R-\d{6}$/.test(r) ? r : "-"; o = /^BC-\d{6}$/.test(o) ? o : "-";
+    r = /^R-\d{6}$/.test(r) ? r : "";
+    if (r && !/^BC-\d{6}$/.test(o)) o = "BC-" + r.slice(2);
+    if (!r) { document.getElementById("find").hidden = false; document.getElementById("label").hidden = true; }
+    document.getElementById("f").onsubmit = function (e) { e.preventDefault();
+      var v = document.getElementById("q").value.trim().toUpperCase().replace(/\s+/g, "").replace(/^R(?=\d)/, "R-");
+      if (/^R-\d{6}$/.test(v)) location.search = "?rma=" + v + "&order=BC-" + v.slice(2);
+      else document.getElementById("err").hidden = false; };
     document.getElementById("rma").textContent = r; document.getElementById("rma2").textContent = r;
     document.getElementById("order").textContent = o;
   </script>
