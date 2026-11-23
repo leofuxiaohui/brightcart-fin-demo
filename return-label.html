@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Return label · BrightCart</title>
+  <style>
+    body { margin:0; font:16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color:#1f1720; background:#fff1f5; }
+    .bar { background:#fff; border-bottom:1px solid #f3d5de; padding:16px 24px; } .bar a { font-weight:700; font-size:22px; color:#be123c; text-decoration:none; }
+    main { max-width:640px; margin:56px auto; padding:0 24px; }
+    .panel { background:#fff; border:1px solid #f3d5de; border-radius:16px; padding:28px; }
+    h1 { margin:0 0 8px; font-size:30px; } p { color:#5b4f57; }
+    code { font:600 15px ui-monospace, Menlo, monospace; color:#be123c; }
+    .label { margin:20px 0; border:2px dashed #1f1720; border-radius:8px; padding:20px; background:#fff; }
+    .label .row { display:flex; justify-content:space-between; gap:16px; font-size:14px; }
+    .label .to { margin:14px 0; font-weight:600; line-height:1.4; }
+    .bars { height:64px; margin-top:12px; background:repeating-linear-gradient(90deg, #1f1720 0 2px, #fff 2px 4px, #1f1720 4px 7px, #fff 7px 9px, #1f1720 9px 10px, #fff 10px 13px); }
+    .rma { text-align:center; font:700 18px ui-monospace, Menlo, monospace; letter-spacing:2px; margin-top:6px; }
+    a.btn, button { display:inline-block; margin:8px 8px 0 0; padding:10px 16px; border-radius:10px; border:0; background:#be123c; color:#fff; text-decoration:none; font:600 15px inherit; cursor:pointer; }
+    a.btn.alt { background:#fff; color:#be123c; border:1px solid #be123c; }
+    @media print { .bar, .noprint { display:none; } body { background:#fff; } .panel { border:0; } }
+  </style>
+</head>
+<body>
+  <div class="bar"><a href="./">BrightCart</a></div>
+  <main><div class="panel">
+    <h1>Your prepaid return label</h1>
+    <p>Return <code id="rma">-</code> for order <code id="order">-</code></p>
+    <div class="label">
+      <div class="row"><span>PREPAID RETURN</span><span>BrightCart Returns</span></div>
+      <div class="to">SHIP TO:<br>BrightCart Returns Center<br>4400 Distribution Way<br>Reno, NV 89502</div>
+      <div class="bars" aria-hidden="true"></div>
+      <div class="rma" id="rma2">-</div>
+    </div>
+    <p>Pack the item with everything it came with, attach this label, and drop it off with the carrier.
+      Return shipping of $5.99 is taken off your refund. Refunds reach your original payment method within 3-5 business days after we receive the item.</p>
+    <p class="noprint" style="font-size:14px">This is a demo label: it isn't valid for shipping.</p>
+    <div class="noprint"><button onclick="window.print()">Print label</button><a class="btn alt" href="./">Back to the Help Center</a></div>
+  </div></main>
+  <script>
+    var q = new URLSearchParams(location.search), r = q.get("rma") || "", o = q.get("order") || "";
+    r = /^R-\d{6}$/.test(r) ? r : "-"; o = /^BC-\d{6}$/.test(o) ? o : "-";
+    document.getElementById("rma").textContent = r; document.getElementById("rma2").textContent = r;
+    document.getElementById("order").textContent = o;
+  </script>
+</body>
+</html>
