@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BrightCart Help Center</title>
+  <style>
+    :root { --ink:#1f1720; --muted:#5b4f57; --line:#f3d5de; --brand:#be123c; --accent:#fb7185; --bg:#fff1f5; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color:var(--ink); background:var(--bg); }
+    .bar { background:#fff; border-bottom:1px solid var(--line); }
+    .bar .in { max-width:1040px; margin:0 auto; padding:16px 24px; display:flex; align-items:baseline; gap:14px; }
+    .bar b { font-size:22px; color:var(--brand); letter-spacing:-.01em; }
+    .bar span { color:var(--muted); font-size:14px; }
+    header { max-width:1040px; margin:0 auto; padding:56px 24px 32px; }
+    header .kicker { margin:0 0 6px; color:var(--brand); font-weight:600; font-size:14px; letter-spacing:.06em; text-transform:uppercase; }
+    header h1 { margin:0 0 10px; font-size:44px; letter-spacing:-.02em; }
+    header p { margin:0; max-width:640px; color:var(--muted); font-size:18px; }
+    main { max-width:1040px; margin:0 auto 72px; padding:0 24px; }
+    .panel { background:#fff; border:1px solid var(--line); border-radius:16px; padding:28px; margin-bottom:20px; }
+    .panel h2 { margin:0 0 4px; font-size:22px; }
+    .panel .sub { margin:0 0 20px; color:var(--muted); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:14px; }
+    .card { padding:16px 18px; border:1px solid var(--line); border-radius:12px; background:#fffafb; }
+    .card .who { font-weight:700; }
+    .card .id { color:var(--muted); font-size:14px; margin:2px 0 10px; }
+    .card ul { margin:0 0 10px; padding-left:18px; font-size:14px; }
+    .card code { font:600 13px ui-monospace, SFMono-Regular, Menlo, monospace; color:var(--brand); }
+    .card .try { font-size:14px; color:var(--muted); }
+    .test { display:none; margin:0 0 16px; padding:10px 14px; border-radius:10px; background:#ffe4ec; color:#9f1239; font-size:14px; }
+    .topics-head { display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin:0 0 16px; }
+    .topics-head h2 { margin:0; font-size:28px; letter-spacing:-.01em; }
+    .topics-head span { color:var(--muted); }
+    .search { width:100%; padding:14px 16px; margin:0 0 20px; font:inherit; border:1px solid #e9b8c6; border-radius:10px; background:#fff; }
+    .search:focus { outline:2px solid var(--brand); outline-offset:1px; border-color:var(--brand); }
+    .topics { display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:18px; }
+    .topic { display:flex; flex-direction:column; padding:24px; background:#fff; border:1px solid var(--line); border-radius:14px;
+             box-shadow:0 1px 2px rgba(76,5,25,.04), 0 4px 14px rgba(76,5,25,.05); color:var(--ink); text-decoration:none;
+             transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease; }
+    .topic:hover { transform:translateY(-2px); border-color:var(--brand); box-shadow:0 8px 24px rgba(190,18,60,.14); }
+    .topic h3 { margin:0 0 10px; font-size:20px; line-height:1.25; color:var(--brand); }
+    .topic p { margin:0 0 18px; color:var(--muted); font-size:15px; flex:1; }
+    .topic .more { color:var(--brand); font-weight:600; font-size:15px; }
+    .topic .more::after { content:" \2192"; }
+    .none { display:none; color:var(--muted); margin:8px 0 0; }
+    footer { text-align:center; color:var(--muted); font-size:13px; padding:0 24px 40px; }
+  </style>
+</head>
+<body>
+  <div class="bar"><div class="in"><b>BrightCart</b><span>Shopping built around customers.</span></div></div>
+  <header>
+    <p class="kicker">Help Center</p>
+    <h1>How can we help?</h1>
+    <p>Track an order, change or cancel it, start a return, or check store pickup. Ask Fin in the chat (bottom right) or browse the articles below.</p>
+  </header>
+  <main>
+    <div class="test" id="testbar">Fin test mode: this Messenger is visible only in your signed-in Intercom browser.</div>
+    <section class="panel">
+      <h2>Try "Where's my order?" in the chat</h2>
+      <p class="sub">Demo customers (fictional). Fin asks for the order email and the order number, or the billing ZIP code if you don't have the number.</p>
+      <div class="grid">
+        <div class="card"><div class="who">Maya Patel</div><div class="id">maya.patel@example.com &middot; ZIP 94110</div>
+          <ul><li><code>BC-104821</code> 55-inch TV, in transit (UPS)</li><li><code>BC-104377</code> wireless earbuds, delivered 6 days ago</li><li><code>BC-104955</code> stand mixer, backordered</li></ul>
+          <div class="try">"Where's my TV?" &middot; "Can I still return my earbuds?" &middot; "When will my mixer ship?"</div></div>
+        <div class="card"><div class="who">Luis Romero</div><div class="id">luis.romero@example.com &middot; ZIP 60614</div>
+          <ul><li><code>BC-104690</code> tent + sleeping bags, delivery exception (FedEx)</li><li><code>BC-105012</code> game console, preorder</li><li><code>BC-103988</code> rain jacket, final sale, delivered</li></ul>
+          <div class="try">"My order BC-104690 never came" (ends in a hand-off with a callback) &middot; "When does my console ship?"</div></div>
+        <div class="card"><div class="who">Ava Thompson</div><div class="id">ava.thompson@example.com &middot; ZIP 78704</div>
+          <ul><li><code>BC-105101</code> carry-on suitcase, ready for store pickup</li><li><code>BC-105077</code> bike helmet + lights, out for delivery</li><li><code>BC-105133</code> cookware set, processing</li></ul>
+          <div class="try">"Is my suitcase ready?" &middot; "I don't have my order number" &middot; "Can I change the address on my cookware order?"</div></div>
+      </div>
+    </section>
+    <section class="panel" id="topics">
+      <div class="topics-head"><h2>Featured topics</h2><span>25 total articles</span></div>
+      <input id="topic-search" class="search" type="search" placeholder="Search BrightCart help articles" aria-label="Search help articles">
+      <div class="topics">
+        <a class="topic" href="https://enterprise-knowledge-demo-c51ab9e5cccf.herokuapp.com/retail/retail-21-account-password-recovery" target="_blank" rel="noopener"><h3>Account Password Recovery</h3><p>Reset your password and get back into a locked account.</p><span class="more">Read article</span></a>
+        <a class="topic" href="https://enterprise-knowledge-demo-c51ab9e5cccf.herokuapp.com/retail/retail-07-app-coupon-troubleshooting" target="_blank" rel="noopener"><h3>App Coupon Troubleshooting</h3><p>Fix coupons that won&#x27;t apply in the BrightCart app.</p><span class="more">Read article</span></a>
+        <a class="topic" href="https://enterprise-knowledge-demo-c51ab9e5cccf.herokuapp.com/retail/retail-09-backorder-status-updates" target="_blank" rel="noopener"><h3>Backorder Status Updates</h3><p>Why an item is backordered, when it ships, and when you&#x27;re charged.</p><span class="more">Read article</span></a>
+        <a class="topic" href="https://enterprise-knowledge-demo-c51ab9e5cccf.herokuapp.com/retail/retail-17-bundle-discount-rules" target="_blank" rel="noopener"><h3>Bundle Discount Rules</h3><p>How bundle discounts are applied and what happens when you return part of a bundle.</p><span class="more">Read article</span></a>
+        <a class="topic" href="https://enterprise-knowledge-demo-c51ab9e5cccf.herokuapp.com/retail/retail-23-damaged-item-reporting" target="_blank" rel="noopener"><h3>Damaged Item Reporting</h3><p>Report a damaged, defective or wrong item within 7 days of delivery.</p><span class="more">Read article</span></a>
+        <a class="topic" href="https://enterprise-knowledge-demo-c51ab9e5cccf.herokuapp.com/retail/retail-15-digital-gift-card-balance" target="_blank" rel="noopener"><h3>Digital Gift Card Balance</h3><p>Check and use a BrightCart digital gift card balance.</p><span class="more">Read article</span></a>
+        <a class="topic" href="https://enterprise-knowledge-demo-c51ab9e5cccf.herokuapp.com/retail/retail-02-editing-shipping-addresses" target="_blank" rel="noopener"><h3>Editing Shipping Addresses</h3><p>Change the address while an order is still processing, and what&#x27;s possible once it has shipped.</p><span class="more">Read article</span></a>
+        <a class="topic" href="https://enterprise-knowledge-demo-c51ab9e5cccf.herokuapp.com/retail/retail-03-gift-receipt-options" target="_blank" rel="noopener"><h3>Gift Receipt Options</h3><p>Add a gift receipt so the recipient can exchange or return without seeing prices.</p><span class="more">Read article</span></a>
+        <a class="topic" href="https://enterprise-knowledge-demo-c51ab9e5cccf.herokuapp.com/retail/retail-18-international-shipping-options" target="_blank" rel="noopener"><h3>International Shipping Options</h3><p>Where BrightCart ships outside the US, and duties and delivery times.</p><span class="more">Read article</span></a>
+        <a class="topic" href="https://enterprise-knowledge-demo-c51ab9e5cccf.herokuapp.com/retail/retail-20-multi-address-checkout-help" target="_blank" rel="noopener"><h3>Multi-address Checkout Help</h3><p>Ship one order to several addresses at checkout.</p><span class="more">Read article</span></a>
+        <a class="topic" href="https://enterprise-knowledge-demo-c51ab9e5cccf.herokuapp.com/retail/retail-13-order-cancellation-windows" target="_blank" rel="noopener"><h3>Order Cancellation Windows</h3><p>Cancel an order before it ships, including backorders, preorders and pickup orders.</p><span class="more">Read article</span></a>
+        <a class="topic" href="https://enterprise-knowledge-demo-c51ab9e5cccf.herokuapp.com/retail/retail-14-payment-authorization-holds" target="_blank" rel="noopener"><h3>Payment Authorization Holds</h3><p>Why a pending charge appears before your order ships, and when it drops off.</p><span class="more">Read article</span></a>
+        <a class="topic" href="https://enterprise-knowledge-demo-c51ab9e5cccf.herokuapp.com/retail/retail-10-preorder-release-dates" target="_blank" rel="noopener"><h3>Preorder Release Dates</h3><p>How preorders ship on release day, the price guarantee, and changing release dates.</p><span class="more">Read article</span></a>
+        <a class="topic" href="https://enterprise-knowledge-demo-c51ab9e5cccf.herokuapp.com/retail/retail-04-price-adjustment-requests" target="_blank" rel="noopener"><h3>Price Adjustment Requests</h3><p>Get the difference back if BrightCart lowers the price within 14 days of your purchase.</p><span class="more">Read article</span></a>
+        <a class="topic" href="https://enterprise-knowledge-demo-c51ab9e5cccf.herokuapp.com/retail/retail-11-product-availability-alerts" target="_blank" rel="noopener"><h3>Product Availability Alerts</h3><p>Get an alert when an out-of-stock item is back.</p><span class="more">Read article</span></a>
+        <a class="topic" href="https://enterprise-knowledge-demo-c51ab9e5cccf.herokuapp.com/retail/retail-24-replacement-shipment-process" target="_blank" rel="noopener"><h3>Replacement Shipment Process</h3><p>How free Express replacements work for lost, damaged or wrong items.</p><span class="more">Read article</span></a>
+        <a class="topic" href="https://enterprise-knowledge-demo-c51ab9e5cccf.herokuapp.com/retail/retail-22-review-moderation-policy" target="_blank" rel="noopener"><h3>Review Moderation Policy</h3><p>What reviews are published and why one might be removed.</p><span class="more">Read article</span></a>
+        <a class="topic" href="https://enterprise-knowledge-demo-c51ab9e5cccf.herokuapp.com/retail/retail-08-reward-points-redemption" target="_blank" rel="noopener"><h3>Reward Points Redemption</h3><p>Earn 1 point per $1 and turn every 500 points into $5 of Rewards cash.</p><span class="more">Read article</span></a>
+        <a class="topic" href="https://enterprise-knowledge-demo-c51ab9e5cccf.herokuapp.com/retail/retail-06-same-day-delivery-eligibility" target="_blank" rel="noopener"><h3>Same-day Delivery Eligibility</h3><p>Check if same-day delivery reaches your ZIP code and which items qualify.</p><span class="more">Read article</span></a>
+        <a class="topic" href="https://enterprise-knowledge-demo-c51ab9e5cccf.herokuapp.com/retail/starting-a-return-or-exchange" target="_blank" rel="noopener"><h3>Starting a Return or Exchange</h3><p>Return most items within 30 days and electronics within 14 days, by mail or in store.</p><span class="more">Read article</span></a>
+        <a class="topic" href="https://enterprise-knowledge-demo-c51ab9e5cccf.herokuapp.com/retail/retail-05-store-pickup-instructions" target="_blank" rel="noopener"><h3>Store Pickup Instructions</h3><p>When your pickup order is ready, what to bring, and how long the store holds it.</p><span class="more">Read article</span></a>
+        <a class="topic" href="https://enterprise-knowledge-demo-c51ab9e5cccf.herokuapp.com/retail/retail-16-subscription-product-management" target="_blank" rel="noopener"><h3>Subscription Product Management</h3><p>Skip, pause or change a repeat-delivery subscription.</p><span class="more">Read article</span></a>
+        <a class="topic" href="https://enterprise-knowledge-demo-c51ab9e5cccf.herokuapp.com/retail/retail-19-tax-exemption-requests" target="_blank" rel="noopener"><h3>Tax Exemption Requests</h3><p>Set up a tax-exempt account for qualifying organisations.</p><span class="more">Read article</span></a>
+        <a class="topic" href="https://enterprise-knowledge-demo-c51ab9e5cccf.herokuapp.com/retail/retail-01-tracking-online-orders" target="_blank" rel="noopener"><h3>Tracking Online Orders</h3><p>Find your tracking link, what each order status means, and when to expect the first carrier scan.</p><span class="more">Read article</span></a>
+        <a class="topic" href="https://enterprise-knowledge-demo-c51ab9e5cccf.herokuapp.com/retail/retail-12-wishlist-management-tips" target="_blank" rel="noopener"><h3>Wishlist Management Tips</h3><p>Save, share and organise items in your wishlist.</p><span class="more">Read article</span></a>
+      </div>
+      <p id="topic-none" class="none">No articles match. Try another word, or ask Fin in the chat.</p>
+    </section>
+  </main>
+  <footer>BrightCart is a fictional retailer used for a Fin AI Agent demo. Orders, customers and policies are demo data.</footer>
+  <script>
+    (function () {
+      var q = new URLSearchParams(location.search);
+      var env = q.get("messenger_environment");
+      var boot = { api_base: "https://api-iam.intercom.io", app_id: "na5o0rtj", hide_default_launcher: false }; // the workspace hides the launcher by default; this page shows it
+      if (env) { boot.messenger_environment = env; document.getElementById("testbar").style.display = "block"; }
+      var w = window, ic = w.Intercom;
+      if (typeof ic === "function") { ic("reattach_activator"); ic("update", boot); return; }
+      var i = function () { i.c(arguments); }; i.q = []; i.c = function (a) { i.q.push(a); }; w.Intercom = i;
+      var s = document.createElement("script"); s.async = true; s.src = "https://widget.intercom.io/widget/" + boot.app_id;
+      document.head.appendChild(s);
+      w.Intercom("boot", boot);
+    })();
+  </script>
+  <script>
+    (function () {
+      var box = document.getElementById("topic-search"), cards = document.querySelectorAll(".topic"), none = document.getElementById("topic-none");
+      box.addEventListener("input", function () {
+        var q = box.value.trim().toLowerCase(), shown = 0;
+        cards.forEach(function (c) { var hit = !q || c.textContent.toLowerCase().indexOf(q) !== -1; c.style.display = hit ? "" : "none"; if (hit) shown++; });
+        none.style.display = shown ? "none" : "block";
+      });
+    })();
+  </script>
+</body>
+</html>
